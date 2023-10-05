@@ -1,54 +1,49 @@
-# Astro Starter Kit: Basics
+# Spotify Clone con Astro
 
-```sh
-npm create astro@latest -- --template basics
-```
+## Descripción
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Este repositorio contiene un clon del popular servicio de música Spotify construido utilizando Astro, un moderno generador de sitios front-end que ofrece rendimiento increíblemente rápido. Es una herramienta educativa diseñada para aquellos interesados en aprender cómo se construyen aplicaciones web modernas utilizando Astro.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Características
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+- Interfaz de usuario similar a Spotify.
+- Reproducción de música.
+- Funcionalidades de búsqueda, playlists y perfiles de usuario.
+- Diseño adaptable a diferentes dispositivos (responsive design).
 
-## 🚀 Project Structure
+## Tecnologías utilizadas
 
-Inside of your Astro project, you'll see the following folders and files:
+- [Astro](https://astro.build/)
+- [Otros frameworks y bibliotecas relevantes]
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Instalación
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+1. Clona este repositorio:
+`
+git clone https://github.com/midudev/spotify-astro-clone.git
+`
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+2. Navega a la carpeta del proyecto:
+`
+cd spotify-astro-clone
+`
 
-Any static assets, like images, can be placed in the `public/` directory.
+3. Instala las dependencias:
+`
+npm install
+`
 
-## 🧞 Commands
+4. Ejecuta el proyecto:
+`
+npm start
+`
 
-All commands are run from the root of the project, from a terminal:
+Visita `http://localhost:3000` en tu navegador para ver la aplicación en funcionamiento.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Contribuciones
 
-## 👀 Want to learn more?
+Las contribuciones son siempre bienvenidas. Si encuentras algún problema o tienes alguna sugerencia, no dudes en abrir un issue o enviar un pull request.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Licencia
+
+Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para obtener más detalles.
