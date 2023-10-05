@@ -33,7 +33,7 @@ const { title } = Astro.props
         <slot />
       </main>
 
-      <footer class="[grid-area:player] min-h-[100px]">
+      <footer class="[grid-area:player]">
         <Player client:load transition:name="media-player" transition:persist />
       </footer>
     </div>
