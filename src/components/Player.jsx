@@ -1,6 +1,7 @@
 import { usePlayerStore } from "@/store/playerStore"
 import { useEffect, useRef, useState } from "react"
 import { Slider } from "./Slider"
+import { VolumeControl } from "./VolumeControl"
 
 export const Pause = ({ className }) => (
   <svg className={className} role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16"><path d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"></path></svg>
@@ -92,43 +93,6 @@ const SongControl = ({ audio }) => {
 
 
 
-const VolumeControl = () => {
-  const volume = usePlayerStore(state => state.volume)
-  const setVolume = usePlayerStore(state => state.setVolume)
-  const previousVolumeRef = useRef(volume)
-
-  const isVolumeSilenced = volume < 0.1
-
-  const handleClickVolumen = () => {
-    if (isVolumeSilenced) {
-      setVolume(previousVolumeRef.current)
-    } else {
-      previousVolumeRef.current = volume
-      setVolume(0)
-    }
-  }
-
-  return (
-    <div className="flex justify-center gap-x-2 text-white">
-      <button className="opacity-70 hover:opacity-100 transition" onClick={handleClickVolumen}>
-        {isVolumeSilenced ? <VolumeSilence /> : <Volume />}
-      </button>
-    
-      <Slider
-        defaultValue={[100]}
-        max={100}
-        min={0}
-        value={[volume * 100]}
-        className="w-[95px]"
-        onValueChange={(value) => {
-          const [newVolume] = value
-          const volumeValue = newVolume / 100
-          setVolume(volumeValue)
-        }}
-      />
-    </div>
-  )
-}
 
 export function Player () {
   const { currentMusic, isPlaying, setIsPlaying, volume } = usePlayerStore(state => state)
