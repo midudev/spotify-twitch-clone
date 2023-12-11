@@ -58,7 +58,7 @@ const SongControl = ({ audio }) => {
   }
 
   const formatTime = time => {
-    if (time == null) return `0:00`
+    if (isNaN(time)) return ''
 
     const seconds = Math.floor(time % 60)
     const minutes = Math.floor(time / 60)
@@ -84,7 +84,7 @@ const SongControl = ({ audio }) => {
       />
 
       <span className="opacity-50 w-12">
-        {duration ? formatTime(duration) : '0:00'}
+        {formatTime(duration)}
       </span>
     </div>
   )
