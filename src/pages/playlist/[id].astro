@@ -1,13 +1,31 @@
 ---
-import MusicsTable from "@/components/MusicsTable.astro"
-import Layout from "../../layouts/Layout.astro"
-import { CardPlayButton } from "@/components/CardPlayButton"
-import { allPlaylists, songs } from "@/lib/data"
+import MusicsTable from "@/components/MusicsTable.astro";
+import Layout from "../../layouts/Layout.astro";
+import { CardPlayButton } from "@/components/CardPlayButton";
+import { allPlaylists, songs } from "@/lib/data";
 
-const { id } = Astro.params
+const { id } = Astro.params;
 
-const playlist = allPlaylists.find((playlist) => playlist.id === id)
-const playListSongs = songs.filter((song) => song.albumId === playlist?.albumId)
+const playlist = allPlaylists.find((playlist) => playlist.id === id);
+const playListSongs = songs.filter(
+  (song) => song.albumId === playlist?.albumId
+);
+
+const parseDuration = (duration: string) => {
+  const [minutes, seconds] = duration.split(":").map(Number);
+  return minutes * 60 + seconds;
+};
+
+const totalDuration = playListSongs.reduce(
+  (acc, song) => acc + parseDuration(song.duration),
+  0
+);
+
+const formatDuration = (durationInSeconds: number) => {
+  const minutes = Math.floor(durationInSeconds / 60);
+  const seconds = durationInSeconds % 60;
+  return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+};
 ---
 
 <Layout title="Spotify Clone">
@@ -44,7 +62,9 @@ const playListSongs = songs.filter((song) => song.albumId === playlist?.albumId)
             </div>
             <p class="mt-1">
               <span class="text-white">{playListSongs.length} canciones</span>,
-              3 h aproximadamente
+              <span class="text-white">
+                Aproximadamente: {formatDuration(totalDuration)}</span
+              >
             </p>
           </div>
         </div>
