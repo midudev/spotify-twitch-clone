@@ -1,5 +1,5 @@
 import {usePlayerStore} from "@/store/playerStore";
-import {VolumeSilenced, VolumeLow, VolumeMedium, VolumeFull} from "@/icons/VolumeIcons/Icons";
+import {VolumeSilenced, VolumeLow, VolumeMedium, VolumeFull} from "@/icons/VolumeIcons";
 
 
 const isVolumeSilenced = (loud: number) => loud < 0.1
