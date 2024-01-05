@@ -13,6 +13,9 @@
       ],
       "@/lib": [
         "src/lib/*"
+      ],
+      "@/services": [
+        "src/services/*"
       ]
     },
     "jsx": "react-jsx",
