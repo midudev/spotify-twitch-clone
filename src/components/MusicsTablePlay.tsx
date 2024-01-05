@@ -51,9 +51,11 @@ export const MusicsTablePlay = ({song, isCurrentSong}: Props) => {
       return
     }
 
-    // the playlist is the same, set the current song
+    // the playlist is the same, but the song is different
+    if(currentMusic.song?.id !== song.id) {
+       setCurrentMusic({songs: currentMusic.songs, playlist: currentMusic.playlist, song: song})
+    }
     setIsPlaying(true)
-    setCurrentMusic({songs: currentMusic.songs, playlist: currentMusic.playlist, song: song})
   }
 
 
