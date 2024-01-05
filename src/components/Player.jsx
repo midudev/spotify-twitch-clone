@@ -1,5 +1,5 @@
 import { usePlayerStore } from "@/store/playerStore"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import { PlayerCurrentSong } from "@/components/PlayerCurrentSong"
 import { PlayerSoundControl } from "@/components/PlayerSoundControl"
 import { PlayerVolumeControl } from "@/components/PlayerVolumeControl"
