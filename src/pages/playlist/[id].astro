@@ -1,5 +1,5 @@
 ---
-import MusicsTable from "@/components/MusicsTable.astro"
+import {MusicsTable} from "@/components/MusicsTable"
 import Layout from "../../layouts/Layout.astro"
 import { CardPlayButton } from "@/components/CardPlayButton"
 import { allPlaylists, songs } from "@/lib/data"
@@ -63,7 +63,7 @@ const playListSongs = songs.filter((song) => song.albumId === playlist?.albumId)
     </div>
 
     <section class="p-6">
-      <MusicsTable songs={playListSongs} />
+      <MusicsTable songs={playListSongs} client:load/>
     </section>
   </div>
 </Layout>
