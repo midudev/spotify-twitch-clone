@@ -20,7 +20,7 @@ export interface PlayerStore {
 export const usePlayerStore = create<PlayerStore>((set) => ({
   isPlaying: false,
   currentMusic: { playlist: null, song: null, songs: [] },
-  volume: 0,
+  volume: 0.1,
   setVolume: (volume) => set({ volume }),
   setIsPlaying: (isPlaying) => set({ isPlaying }),
   setCurrentMusic: (currentMusic) => {set({currentMusic})},
