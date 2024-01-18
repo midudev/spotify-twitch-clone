@@ -32,8 +32,9 @@ const playListSongs = songs.filter((song) => song.albumId === playlist?.albumId)
         <h2 class="flex flex-1 items-end">Playlist</h2>
         <div>
           <h1 class="text-5xl font-bold block text-white">
-            {playlist?.title}
-            <span transition:name=`playlist ${playlist?.id} title`></span>
+            <span transition:name=`playlist ${playlist?.id} title`>
+                {playlist?.title}
+            </span>
           </h1>
         </div>
 
