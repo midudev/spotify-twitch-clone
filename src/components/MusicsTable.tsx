@@ -8,7 +8,7 @@ interface Props {
 }
 
 
-let isCurrentSong = (song: Song) => {
+const isCurrentSong = (song: Song) => {
   const {song: currentSong, playlist} = usePlayerStore(state => state.currentMusic)
   return currentSong?.id == song.id && playlist?.albumId == song.albumId
 }
