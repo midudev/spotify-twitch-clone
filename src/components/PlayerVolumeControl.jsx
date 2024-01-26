@@ -23,7 +23,6 @@ export const PlayerVolumeControl = () => {
   return (
     <div className="flex justify-center gap-x-2 text-white">
       <button className="opacity-70 hover:opacity-100 transition" onClick={handleClickVolumen}>
-      {/*  {isVolumeSilenced ? <VolumeSilenced /> : <Volume />}*/}
         <PlayerVolumeIconComponent />
       </button>
 

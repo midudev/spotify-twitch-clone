@@ -7,7 +7,7 @@
     "@radix-ui/react-slider": "1.1.2",
     "@types/react": "18.2.46",
     "@types/react-dom": "18.0.6",
-    "astro": "4.0.9",
+    "astro": "^4.2.4",
     "clsx": "2.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
