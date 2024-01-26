@@ -41,7 +41,7 @@ export function Player() {
 
       <div className="grid place-content-center gap-4 flex-1">
         <div className="flex justify-center flex-col items-center">
-          <button className="bg-white rounded-full p-2" onClick={handleClick}>
+          <button className="bg-white text-black rounded-full p-2 hover:scale-110" onClick={handleClick}>
             {isPlaying ? <Pause/> : <Play/>}
           </button>
           <PlayerSoundControl audio={audioRef}/>
