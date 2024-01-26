@@ -1,7 +1,7 @@
-import {type Song} from "@/lib/data"
-import {Play, Pause} from "@/icons/PlayerIcons";
-import {usePlayerStore, type CurrentMusic} from "@/store/playerStore.ts";
-import {getPlayListInfoById} from "@/services/ApiService";
+import { type Song } from "@/lib/data"
+import { Play, Pause } from "@/icons/PlayerIcons";
+import { usePlayerStore, type CurrentMusic } from "@/store/playerStore.ts";
+import { getPlayListInfoById } from "@/services/ApiService";
 
 interface Props {
   song: Song
@@ -20,9 +20,10 @@ const setNewCurrentMusic = (
   setCurrentMusic: (currentMusic: CurrentMusic) => void): void => {
   getPlayListInfoById(song.albumId).then(data => {
     const {songs, playlist} = data
-    setIsPlaying(true)
     setCurrentMusic({songs: songs, playlist: playlist, song: song})
-  })
+  }).then(() => {
+    setIsPlaying(true)
+  });
 }
 
 export const MusicsTablePlay = ({song, isCurrentSong}: Props) => {
@@ -52,16 +53,16 @@ export const MusicsTablePlay = ({song, isCurrentSong}: Props) => {
     }
 
     // the playlist is the same, but the song is different
-    if(currentMusic.song?.id !== song.id) {
-       setCurrentMusic({songs: currentMusic.songs, playlist: currentMusic.playlist, song: song})
+    if (currentMusic.song?.id !== song.id) {
+      setCurrentMusic({songs: currentMusic.songs, playlist: currentMusic.playlist, song: song})
     }
     setIsPlaying(true)
   }
 
 
-  const className = "hover:scale-105"
+  const className = "hover:scale-125"
   return (
-    <button onClick={() => handleClick(song)}>
+    <button className="text-white" onClick={() => handleClick(song)}>
       {isCurrentSongRunning(song) ? <Pause className={className}/> : <Play className={className}/>}
     </button>
   )
