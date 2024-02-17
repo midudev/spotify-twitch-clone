@@ -11,8 +11,11 @@ export function Player() {
   const audioRef = useRef();
 
   useEffect(() => {
+    if(!currentMusic.song){
+      return;
+    }
     isPlaying
-      ? audioRef.current.play()
+      ? audioRef.current.play().catch((e) => console.log('error playing: ', e))
       : audioRef.current.pause()
   }, [isPlaying])
 
