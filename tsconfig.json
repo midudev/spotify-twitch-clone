@@ -8,11 +8,17 @@
       "@/components": [
         "src/components/*"
       ],
+      "@/hooks": [
+        "src/hooks/*"
+      ],
       "@/icons": [
         "src/icons/*"
       ],
       "@/lib": [
         "src/lib/*"
+      ],
+      "@/services": [
+        "src/services/*"
       ]
     },
     "jsx": "react-jsx",
