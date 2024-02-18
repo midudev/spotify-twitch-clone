@@ -76,13 +76,13 @@ export function Player() {
       <div className="grid place-content-center gap-4 flex-1">
         <div className="flex justify-center flex-col items-center">
           <div className="flex justify-center flex-row flex-nowrap items-center gap-4">
-            <button onClick={onPrevSong} title="Previous song">
+            <button className="hover:scale-110" onClick={onPrevSong} title="Previous song">
               <Prev/>
             </button>
             <button className="bg-white text-black rounded-full p-2 hover:scale-110" onClick={onPlayPause}>
               {isPlaying ? <Pause/> : <Play/>}
             </button>
-            <button onClick={onNextSong} title="Next song">
+            <button className="hover:scale-110" onClick={onNextSong} title="Next song">
               <Next/>
             </button>
           </div>
