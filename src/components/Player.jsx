@@ -87,7 +87,7 @@ export function Player() {
             </button>
           </div>
           <PlayerSoundControl audio={audioRef}/>
-          <audio ref={audioRef}/>
+          <audio ref={audioRef} onEnded={onNextSong}/>
         </div>
       </div>
 
