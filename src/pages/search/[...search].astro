@@ -1,0 +1,82 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SearchButton from '../../components/SearchButton';
+import PlayListItemCard from '../../components/PlayListItemCard.astro';
+import { playlists } from '../../lib/data';
+
+const query = Astro.url.searchParams.get('q')?.toLowerCase() || '';
+
+const searchPlaylists = query
+  ? playlists.filter(
+      (playlist) =>
+        playlist.title.toLowerCase().includes(query) ||
+        playlist.artists.some((artist) =>
+          artist.toLowerCase().includes(query)
+        ) ||
+        playlist.albumId.toString().includes(query)
+    )
+  : playlists;
+---
+
+<Layout title="Spotify Clone • Search">
+  <div class="pt-8 px-8">
+    <SearchButton initialQuery={query} client:load />
+
+    <div
+      id="search-results"
+      transition:persist
+      transition:name="search-results"
+    >
+      <div class="mt-10">
+        {
+          query ? (
+            <h2 class="text-3xl font-bold mb-8 text-white">
+              Resultados para "<span class="text-green-400">{query}</span>"
+            </h2>
+          ) : (
+            <h2 class="text-3xl font-bold mb-8 text-white">Explora todo</h2>
+          )
+        }
+
+        <div
+          class="flex flex-wrap mt-6 gap-4"
+        >
+          {
+            searchPlaylists.map((playlist) => (
+              <PlayListItemCard playlist={playlist} />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+  <script is:inline>
+    window.addEventListener('popstate', updateResults);
+    window.addEventListener('search-change', updateResults);
+
+    async function updateResults() {
+      const url = new URL(window.location);
+      const q = url.searchParams.get('q')?.toLowerCase().trim() || '';
+
+      const response = await fetch(`${url.pathname}${url.search}`);
+      const html = await response.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const newContent = doc.querySelector('#search-results');
+
+      if (newContent) { 
+        if (document.startViewTransition) {
+          document.startViewTransition(() => {
+            document
+              .getElementById('search-results')
+              ?.replaceChildren(...newContent.childNodes);
+          });
+        } else {
+          document
+            .getElementById('search-results')
+            ?.replaceChildren(...newContent.childNodes);
+        }
+      }
+    }
+  </script>
+</Layout>
